@@ -9,6 +9,7 @@ import ViewFinishedFilesPage from "@/app/components/CheckedDocuments";
 import InteractiveButton from "@/app/components/homeButton";
 import Image from 'next/image';
 import Link from "next/link";
+import AnnouncementList from "@/app/components/announcement";
 
 function RecentDocuments() {
 
@@ -26,11 +27,10 @@ function RecentDocuments() {
 }
 
 function Announcements() {
-
-
-  return <div>Here are the latest announcements...</div>;
-
-  
+  return (
+    <><div>Here are the latest announcements...</div>
+    <AnnouncementList /></>
+  );
 }
 
 function downloadPdf(fileName: string) {
