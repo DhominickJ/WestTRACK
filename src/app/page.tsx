@@ -5,7 +5,6 @@ import Image from "next/image";
 import Header from "./components/header";
 import RequestBtn from "./components/request";
 import ContentLoader from "./components/content-loader";
-import TeamSection from "./components/teamSection";
 import LandingSection from "./components/landingSection";
 import Footer from "./components/footer";
 
@@ -14,15 +13,9 @@ export default function Home() {
     <div>
       <Header />
       <RequestBtn
-<<<<<<< HEAD
       text="Request a Document"
       isActive={true}
       redirectTo="/users/home" // The URL to navigate to
-=======
-        text="Request a Document"
-        isActive={true}
-        redirectTo="/app/users/home/page" // The URL to navigate to
->>>>>>> ef5ae004354c2499590dbfe991f05bc9bb454fd0
       />
       <LandingSection />
 
@@ -59,9 +52,9 @@ export default function Home() {
           height: "700",
         }}
       >
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        <h1 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           Trusted by Administrative Offices
-        </h2>
+        </h1>
         <p style={{ textAlign: "center", marginBottom: "2rem" }}>
           Our platform is trusted by administrative offices for its reliability,
           security, and efficiency in handling document requests.
@@ -72,6 +65,7 @@ export default function Home() {
             justifyContent: "center",
             gap: "2rem",
             flexWrap: "wrap",
+            maxWidth: "700px",
           }}
         >
           <div style={{ textAlign: "center" }}>
@@ -124,9 +118,9 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <h2 style={{ color: "#133683", marginBottom: "1rem" }}>
+        <h1 style={{ color: "#133683", marginBottom: "1rem" }}>
           What Users Think
-        </h2>
+        </h1>
         <p style={{ marginBottom: "2rem" }}>
           Explore honest reviews and ratings from users who’ve experienced our
           seamless process firsthand.
@@ -143,7 +137,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/images/member.png.jpg"
+            src="/images/member.png"
             alt="User Profile"
             width={60}
             height={60}
@@ -175,36 +169,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-
-      {/* About Section */}
-      <div
-        style={{
-          maxHeight: "700px",
-          backgroundColor: "#FFD700",
-          padding: "3rem 1rem",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ fontWeight: "bold", marginBottom: "1.5rem" }}>
-          About WESTTRACK
-        </h2>
-        <p
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            marginBottom: "2rem",
-            lineHeight: "1.5",
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. t enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-
-      {/* Team Section */}
-      <TeamSection />
 
       {/* Footer Section */}
       <Footer />
