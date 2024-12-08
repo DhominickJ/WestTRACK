@@ -19,6 +19,7 @@ interface File {
 const Files = () => {
   const { userId: clerkUserId, isLoaded } = useAuth();
   const [files, setFiles] = useState<File[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>(""); // Search Query state
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -61,9 +62,14 @@ const Files = () => {
     fetchFiles();
   }, [clerkUserId, isLoaded]);
 
+  // Filter files based on the search query
+  const filteredFiles = files.filter((file) =>
+    file.fileName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      <Header />
+      <Header onSearch={setSearchQuery} /> {/* Pass search handler to Header */}
       <div className="m-12">
         <Link href="/users/home">
           <Image
@@ -78,7 +84,7 @@ const Files = () => {
         {loading ? (
           <p>Loading...</p>
         ) : clerkUserId ? (
-          files.length > 0 ? (
+          filteredFiles.length > 0 ? ( // Use filteredFiles for rendering
             <div className="overflow-x-auto">
               <table className="min-w-full border-collapse border-4 border-red-50 rounded-lg overflow-hidden">
                 <thead className="text-[16px]">
@@ -101,7 +107,7 @@ const Files = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {files.map((file) => (
+                  {filteredFiles.map((file) => (
                     <tr
                       key={file.id}
                       className="border-b border-gray-300 text-[16px]"
