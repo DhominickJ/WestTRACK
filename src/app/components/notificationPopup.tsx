@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Trash2, Mail, Archive } from "lucide-react";
+import { Trash2, Mail, Archive, User } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface Notification {
   id: number;
@@ -13,7 +14,9 @@ interface NotificationPopupProps {
   notifications: Notification[];
 }
 
-const NotificationPopup: React.FC<NotificationPopupProps> = ({ notifications }) => {
+const NotificationPopup: React.FC<NotificationPopupProps> = ({
+  notifications,
+}) => {
   const [isNotificationOpen, setNotificationOpen] = useState(false);
 
   const toggleNotifications = () => {
@@ -38,9 +41,7 @@ const NotificationPopup: React.FC<NotificationPopupProps> = ({ notifications }) 
           />
         </svg>
         {notifications.length > 0 && (
-          <span
-            className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
-          >
+          <span className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
             {notifications.length}
           </span>
         )}
@@ -78,3 +79,11 @@ const NotificationPopup: React.FC<NotificationPopupProps> = ({ notifications }) 
 };
 
 export default NotificationPopup;
+
+export const LoginNotificationPop = () => {
+  <Alert>
+    <User className="h-4 w-4" />
+    <AlertTitle>Signup Status</AlertTitle>
+    <AlertDescription>You Have Successfully Signed Up!</AlertDescription>
+  </Alert>;
+};

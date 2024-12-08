@@ -27,8 +27,8 @@ function Header(_type: any) {
                 <input
                   type="search"
                   name="q"
-                  placeholder="🔍 Search..."
-                  className="w-[440px] h-9 pl-4 rounded-[40px] mr-12 bg-westTrackGray outline-none pr-4 align-middle "
+                  placeholder="Search"
+                  className="w-[440px] h-9 pl-4 rounded-[40px] mr-12 bg-westTrackGray outline-none pr-4 align-middle border-[1px] border-gray"
                 />
               </div>
             </form>
@@ -36,7 +36,7 @@ function Header(_type: any) {
             {/* Bell Icon */}
             <ul className="flex space-x-5 items-center">
               <li>
-                <Bell size={28} color="#0f0f0f" />
+                <Bell size={28} color="#0f0f0f"/>
               </li>
             </ul>
 

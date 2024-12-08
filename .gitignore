@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # # env files (can opt-in for committing if needed)
-# .env*
+.env*
 
 # vercel
 .vercel
@@ -169,9 +169,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-#bun
+#bun..
 .lockb
 /database
 deno.lock
+bun.lockb
 
 

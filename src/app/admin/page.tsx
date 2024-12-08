@@ -150,6 +150,7 @@ const Admin = () => {
                 Show Status
               </button>
               <select
+                title="File Selector"
                 onChange={(e) => updateFileStatus(file.id, e.target.value)}
                 defaultValue="Select Status"
                 name="fileUpdater"

@@ -1,10 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
-interface File {
+export interface File {
   id: string;
   fileName: string;
   fileContent: string;
@@ -79,27 +87,6 @@ export const showFileStatus = (status: string) => {
   return status;
 };
 
-// export const downloadFile = (file: File) => {
-//   try {
-//     if (!isValidBase64(file.fileContent)) {
-//       throw new Error("Invalid base64 string");
-//     }
-//     const base64Content = file.fileContent.replace(
-//       /^data:application\/pdf;base64,/,
-//       ""
-//     );
-//     const decodedContent = decodeBase64(base64Content);
-//     const blob = new Blob([decodedContent], { type: "application/pdf" });
-//     const link = document.createElement("a");
-//     link.href = URL.createObjectURL(blob);
-//     link.download = file.fileName;
-//     link.click();
-//     URL.revokeObjectURL(link.href);
-//   } catch (error) {
-//     console.error("Failed to decode file content: ", error);
-//   }
-// };
-
 export const downloadFile = ({ fileName, fileContent }: File) => {
   try {
     // Ensure Base64 padding
@@ -140,5 +127,37 @@ export const downloadFile = ({ fileName, fileContent }: File) => {
     } else {
       console.error("Error decoding Base64 or downloading file:", error);
     }
+  }
+};
+
+export const useHandleViewDocument = () => {
+  const router = useRouter();
+
+  const handleViewDocument = (file: File) => {
+    router.push(`/users/document?fileId=${file.id}`);
+  };
+  return handleViewDocument;
+};
+
+export const getFileById = async (fileId: string): Promise<File> => {
+  try {
+    const docCol = collection(db, "processing");
+    const docRef = doc(docCol, fileId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return {
+        id: docSnap.id,
+        fileName: data.fileName,
+        fileContent: data.fileContent,
+        status: data.status,
+        userId: data.userId,
+      };
+    } else {
+      throw new Error("No such document!");
+    }
+  } catch (error) {
+    console.error("Error getting document:", error);
+    throw error;
   }
 };

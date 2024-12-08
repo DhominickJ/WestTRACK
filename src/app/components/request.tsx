@@ -9,7 +9,11 @@ interface RequestBtnProps {
   redirectTo: string; // The URL to navigate to
 }
 
-export default function RequestBtn({ text, isActive, redirectTo }: RequestBtnProps) {
+export default function RequestBtn({
+  text,
+  isActive,
+  redirectTo,
+}: RequestBtnProps) {
   const router = useRouter();
 
   const handleRedirect = () => {
@@ -41,8 +45,8 @@ export default function RequestBtn({ text, isActive, redirectTo }: RequestBtnPro
         variant={"outline"}
         className={`rounded-full absolute z-10 ${
           isActive
-          ? "bg-homeLightBlueBG text-white border-transparent" // Active: No visible border
-          : "bg-westTrackGray text-black border-black border-opacity-[0.5]" // Inactive: Black border
+            ? "bg-homeLightBlueBG text-white border-transparent" // Active: No visible border
+            : "bg-westTrackGray text-black border-black border-opacity-[0.5]" // Inactive: Black border
         }`}
       >
         {text}

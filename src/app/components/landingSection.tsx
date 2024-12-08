@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const LandingSection = () => {
   return (
-    <header
+    <div
       style={{
         position: "relative",
         height: "700px",
@@ -15,9 +15,8 @@ const LandingSection = () => {
       <Image
         src="/images/Home_bg.png"
         alt="Background"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
+        fill // Replaces `layout="fill"`
+        style={{ objectFit: "cover" }} // Replace legacy `objectFit` prop
       />
 
       {/* Logo and Tagline */}
@@ -41,7 +40,7 @@ const LandingSection = () => {
             height={250}
           />
         </div>
-        
+
         {/* Tagline */}
         <p
           style={{
@@ -55,7 +54,7 @@ const LandingSection = () => {
           Transact like never before
         </p>
       </div>
-    </header>
+    </div>
   );
 };
 
