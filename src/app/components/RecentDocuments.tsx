@@ -19,7 +19,11 @@ interface FileData {
   fileContent: string; // Base64 encoded string
 }
 
-export default function PdfViewer() {
+interface PdfViewerProps {
+  searchQuery: string;
+}
+
+export default function PdfViewer({ searchQuery }: PdfViewerProps) {
   const { userId: clerkUserId, isLoaded } = useAuth();
   const [files, setFiles] = useState<FileData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -61,13 +65,18 @@ export default function PdfViewer() {
     fetchFiles();
   }, [clerkUserId, isLoaded]);
 
+  // Filter files based on the search query
+  const filteredFiles = files.filter((file) =>
+    file.fileName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="container flex justify-between items-start min-h-96">
       {loading ? (
         <p>Loading files...</p>
-      ) : files.length > 0 ? (
+      ) : filteredFiles.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-          {files.map((file) => (
+          {filteredFiles.map((file) => (
             <div
               key={file.id}
               className="border p-4 text-center truncate max-w-[300px] justify-self-center self-start ml-24"
@@ -89,4 +98,4 @@ export default function PdfViewer() {
       )}
     </div>
   );
-}  
+}

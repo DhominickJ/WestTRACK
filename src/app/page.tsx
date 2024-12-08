@@ -16,7 +16,7 @@ export default function Home() {
       <RequestBtn
         text="Request a Document"
         isActive={true}
-        redirectTo="/app/users/home/page" // The URL to navigate to
+        redirectTo="/app/sign-in" // The URL to navigate to
       />
       <LandingSection />
 
