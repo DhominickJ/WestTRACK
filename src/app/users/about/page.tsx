@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/app/components/homeHeader";
+import Header from "@/app/components/unregisteredHeader";
 import InteractiveButton from "@/app/components/homeButton";
 
 function About(){
