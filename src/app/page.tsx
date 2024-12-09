@@ -46,11 +46,14 @@ export default function Home() {
       {/* Trusted Offices Section */}
       <div
         style={{
-          maxHeight: "700px",
+          // maxHeight: "700px",
           backgroundColor: "#133683",
           color: "#ffffff",
-          padding: "2rem",
-          height: "700",
+          padding: "10rem",
+          // height: "700px",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
         <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
@@ -66,45 +69,56 @@ export default function Home() {
             justifyContent: "center",
             gap: "2rem",
             flexWrap: "wrap",
+            alignItems: "center",
           }}
         >
-          <div style={{ textAlign: "center" }}>
+          <div
+            style={{ textAlign: "center" }}
+            className="flex items-center justify-center flex-col"
+          >
             <Image
               src="/icons/gso.png"
               alt="General Services Office"
               width={80}
               height={80}
             />
-            <p>General Services Office (GSO)</p>
+            <p className="w-48 text-center">General Services Office (GSO)</p>
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div
+            style={{ textAlign: "center" }}
+            className="flex items-center justify-center flex-col"
+          >
             <Image
               src="/icons/osa.png"
               alt="Office of Student Affairs"
               width={80}
               height={80}
             />
-            <p>Office of Student Affairs (OSA)</p>
+            <p className="w-48 text-center">Office of Student Affairs (OSA)</p>
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div
+            style={{ textAlign: "center" }}
+            className="flex items-center justify-center flex-col"
+          >
             <Image
               src="/icons/op.png"
               alt="Office of the President"
               width={80}
               height={80}
             />
-            <p>Office of the President (OP)</p>
+            <p className="w-48 text-center">Office of the President (OP)</p>
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div
+            style={{ textAlign: "center" }}
+            className="flex items-center justify-center flex-col"
+          >
             <Image
               src="/icons/oniclub.png"
               alt="Mommy Oni Club PH"
               width={80}
               height={80}
             />
-            <p>
-              Mommy Oni Club PH - Western Visayas Chapter (50th Anniversary)
-            </p>
+            <p className="w-48 text-center">Office of Mommy Oni (OMO)</p>
           </div>
         </div>
       </div>
@@ -198,7 +212,7 @@ export default function Home() {
       </div>
 
       {/* Team Section */}
-      <TeamSection />
+      {/* <TeamSection /> */}
 
       {/* Footer Section */}
       <Footer />
