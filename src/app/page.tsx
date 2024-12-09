@@ -220,29 +220,15 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <h2
-          style={{
-            fontWeight: "bold",
-            marginBottom: "1.5rem",
-            fontSize: "2rem",
-            color: "#133683",
-          }}
-        >
-          About WESTTRACK
-        </h2>
-        <p
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            marginBottom: "2rem",
-            lineHeight: "1.5",
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. t enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <h2 className="text-2xl font-bold mb-4">About WESTTRACK</h2>
+        <p className="text-black text-base leading-relaxed max-w-3xl mx-auto">
+          WestTrack is a Transaction Processing System developed for West Visayas State University. 
+          Many students experience long wait times, sometimes taking hours or even days, to have 
+          their documents signed by specific departments. 
+
+          WestTrack is designed to tackle the common challenges students face when accessing 
+          official documents. It significantly reduces processing times and enhances transaction 
+          speeds while providing real-time status updates, transparency, and ease of access.</p>
       </div>
 
       {/* Team Section */}

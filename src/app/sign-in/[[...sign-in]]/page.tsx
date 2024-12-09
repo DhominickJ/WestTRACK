@@ -41,7 +41,7 @@ function SignInPage() {
       <div className="bg-white shadow-lg rounded-lg flex overflow-hidden max-w-[900px] w-full">
         {/* Left Section */}
         <div className="w-1/2 bg-gray-100 flex flex-col justify-center items-center p-8">
-          <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+          <Image src="/images/logo_icon.png" alt="Logo" width={100} height={100} />
           <h2 className="text-2xl font-bold text-gray-700 mt-4">Sign In</h2>
         </div>
 
@@ -100,8 +100,14 @@ function SignInPage() {
             </a>
           </p>
 
-          {/* Google One Tap Component */}
-          <CustomGoogleOneTap />
+          <div 
+          className="w-[200px] w-full bg-transparent 500 text-white flex items-center justify-center mt-4">
+            <p className="text-sm">or Sign up with Google</p>
+
+              {/* Google One Tap Component */}
+              <CustomGoogleOneTap />
+          </div>
+
         </div>
       </div>
     </div>
