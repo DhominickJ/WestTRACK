@@ -65,7 +65,6 @@ export default function Home() {
             justifyContent: "center",
             gap: "2rem",
             flexWrap: "wrap",
-            maxWidth: "700px",
           }}
         >
           <div style={{ textAlign: "center" }}>

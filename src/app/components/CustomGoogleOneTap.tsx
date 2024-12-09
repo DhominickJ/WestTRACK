@@ -36,8 +36,8 @@ export function CustomGoogleOneTap() {
       <Image
         src="/images/google.svg"
         alt="Sign in with Google"
-        width={40}
-        height={40}
+        width={20}
+        height={20}
       />
     </div>
   );

@@ -100,8 +100,14 @@ function SignInPage() {
             </a>
           </p>
 
-          {/* Google One Tap Component */}
-          <CustomGoogleOneTap />
+          <div 
+          className="w-[200px] w-full bg-transparent 500 text-white flex items-center justify-center mt-4">
+            <p className="text-sm">or Sign up with Google</p>
+
+              {/* Google One Tap Component */}
+              <CustomGoogleOneTap />
+          </div>
+
         </div>
       </div>
     </div>
