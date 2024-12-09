@@ -9,6 +9,8 @@ const LandingSection = () => {
         height: "700px",
         width: "100%",
         overflow: "hidden",
+        margin: 0,
+        padding: 0,
       }}
     >
       {/* Background Image */}
@@ -16,7 +18,11 @@ const LandingSection = () => {
         src="/images/Home_bg1.png"
         alt="Background"
         fill
-        style={{ objectFit: "cover" }}
+        style={{ 
+          objectFit: "cover",
+          margin: 0,
+          padding: 0,
+         }}
       />
 
       {/* Logo and Tagline */}
