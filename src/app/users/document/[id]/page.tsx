@@ -2,10 +2,13 @@
 
 import { useParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useUser } from "@clerk/nextjs";
 import { Document, Page, pdfjs } from "react-pdf";
+import Image from "next/image";
+import Link from "next/link";
+
 
 // Import required styles for annotation and text layers
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -92,42 +95,109 @@ function DocumentContent() {
     return <div className="text-center text-lg">Document not found.</div>;
   }
 
+  const handleDelete = async () => {
+    if (!id) return;
+  
+    try {
+      const docRef = doc(db, "processing", id as string);
+      await deleteDoc(docRef);
+      alert("Document deleted successfully.");
+      // Optionally, redirect the user after deletion
+      window.location.href = "/users/home";
+    } catch (error) {
+      console.error("Error deleting document:", error);
+      alert("Failed to delete the document.");
+    }
+  };
+
   return (
     <>
-      <div className="w-full h-20 bg-[#d9d9d9] flex items-center justify-around fixed top-0 z-50">
-        <div className="w-[198px] h-[30px] bg-[#0b5ca6] rounded-lg"></div>
-        <div className="w-[837px] h-[50px] bg-neutral-100 rounded-lg"></div>
-        <div className="w-[115px] h-[30px] bg-[#0b5ca6] rounded-lg"></div>
-        <div className="w-[94px] h-[30px] bg-[#d61212] rounded-lg"></div>
+    <div className="w-full h-20 bg-[#d9d9d9] flex items-center justify-center fixed top-0 z-50 flex-shrink-0"> 
+      <div className="w-[198px] h-[30px] mr-24 justify-self-auto flex-shrink-0 ml-2">
+        <Link href="  /users/home"> 
+          <Image 
+            src="/images/back.svg" 
+            alt="Logo" 
+            width={175} 
+            height={30} 
+            className="cursor-pointer"
+          />
+        </Link>
+      </div>
+
+        <div className="w-[837px] h-[50px] bg-neutral-100 rounded-lg flex items-center justify-center">
+          <h1 className="text-base font-bold truncate">
+            {fileData.fileName || "Unknown Document"}
+          </h1>
+        </div>
+
+        <div className="flex flex-row ml-24 justify-self-end justify-between">
+          <div className="w-[115px] h-[30px] mr-3">
+            <Image 
+              src="/images/Download.svg" 
+              alt="Download" 
+              width={115} 
+              height={30} 
+              className="cursor-pointer"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = `data:application/pdf;base64,${fileData.fileContent}`;
+                link.download = fileData.fileName || "download.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            />
+          </div>
+
+          <div className="w-[115px] h-[30px]">
+            <Image 
+              src="/images/delete.svg" 
+              alt="delete" 
+              width={100} 
+              height={30} 
+              className="cursor-pointer"
+              onClick={handleDelete}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex w-full h-screen items-start mt-20">
+
         {/* Left Sidebar */}
-        <div className="w-[15rem] h-[calc(100vh-5rem)] bg-[#d9d9d9] rounded-lg fixed left-0 top-20 p-5 overflow-y-auto">
+        <div className="w-[16rem] h-[550px] bg-[#d9d9d9] rounded-lg fixed left-0 top-100 p-5 overflow-y-auto mt-12">
           <div className="document flex flex-col">
-            <div className="DocumentInfo text-black text-lg font-bold mb-5">
+            <div className="DocumentInfo text-black text-lg font-bold mb-3">
               <p className="mb-2">Document Info</p>
-              <p className="text-base font-medium truncate">{fileData.fileName || "Unknown Document"}</p>
+              <p className="text-base font-medium truncate">ℹ️ {fileData.fileName || "Unknown Document"}</p>
             </div>
-            <div className="space-y-4 text-sm">
+
+            <div className="space-y-4 text-sm mt-2">
               <div>
                 <p className="text-black font-normal">Requested by:</p>
-                <p className="text-black font-bold">{userName}</p>
+                <p className="text-black font-bold">👨🏽‍🎓 {userName}</p>
               </div>
               <div>
                 <p className="text-black font-normal">Date:</p>
-                <p className="text-black font-bold">{new Date().toLocaleDateString()}</p>
+                <p className="text-black font-bold">📅 {new Date().toLocaleDateString()}</p>
               </div>
               <div>
                 <p className="text-black font-normal">Time:</p>
-                <p className="text-black font-bold">{new Date().toLocaleTimeString()}</p>
+                <p className="text-black font-bold">🕒 {new Date().toLocaleTimeString()}</p>
+
+            <hr style={{ backgroundColor: 'black', opacity: 0.3, height: '1px', border: 'none', marginBottom: "12px", marginTop: "16px"}} />
+              <div className="Progress text-black text-lg font-bold mb-3">
+              <p className="mb-2">Progress</p>
+              <p className="text-base font-medium truncate">{fileData.fileName || "Unknown Document"}</p>
               </div>
             </div>
           </div>
         </div>
+        </div>
 
         {/* Document Viewer */}
-        <div className="flex-grow flex-col ml-[15rem] px-5">
+        <div className="flex-grow flex-col mx-auto px-5">
           <div className="relative overflow-hidden w-full h-full flex flex-col items-center">
             <Document
               file={`data:application/pdf;base64,${fileData.fileContent}`}
@@ -145,8 +215,10 @@ function DocumentContent() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-[15rem] h-[calc(100vh-5rem)] bg-[#d9d9d9] rounded-lg fixed right-0 top-20"></div>
+        <div className="w-[16rem] h-[550px] bg-[#d9d9d9] rounded-lg fixed right-0 top-100 p-5 overflow-y-auto mt-12">
+        </div>
       </div>
+
     </>
   );
 }
