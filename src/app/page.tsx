@@ -8,6 +8,13 @@ import ContentLoader from "./components/content-loader";
 import TeamSection from "./components/teamSection";
 import LandingSection from "./components/landingSection";
 import Footer from "./components/footer";
+import {
+  GraduationCap,
+  BookA,
+  Globe,
+  GavelIcon,
+  User2Icon,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -31,7 +38,7 @@ export default function Home() {
       <ContentLoader
         header="Effortless Experience"
         content="Our system guides your requests from start to finish with clarity and ease – making the process straightforward and stress-free."
-        imgSrc="/icons/easy.png"
+        imgSrc="/icons/easy.svg"
         imgPos="left"
         bgColor="[#0b5ca6]"
       />
@@ -56,7 +63,14 @@ export default function Home() {
           flexDirection: "column",
         }}
       >
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        <h2
+          style={{
+            textAlign: "center",
+            marginBottom: "1.5rem",
+            fontSize: "2rem",
+            fontWeight: "bold",
+          }}
+        >
           Trusted by Administrative Offices
         </h2>
         <p style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -76,48 +90,52 @@ export default function Home() {
             style={{ textAlign: "center" }}
             className="flex items-center justify-center flex-col"
           >
-            <Image
+            {/* <Image
               src="/icons/gso.png"
               alt="General Services Office"
               width={80}
               height={80}
-            />
+            /> */}
+            <Globe width={80} height={80} />
             <p className="w-48 text-center">General Services Office (GSO)</p>
           </div>
           <div
             style={{ textAlign: "center" }}
             className="flex items-center justify-center flex-col"
           >
-            <Image
+            {/* <Image
               src="/icons/osa.png"
               alt="Office of Student Affairs"
               width={80}
               height={80}
-            />
+            /> */}
+            <GraduationCap width={80} height={80} />
             <p className="w-48 text-center">Office of Student Affairs (OSA)</p>
           </div>
           <div
             style={{ textAlign: "center" }}
             className="flex items-center justify-center flex-col"
           >
-            <Image
+            {/* <Image
               src="/icons/op.png"
               alt="Office of the President"
               width={80}
               height={80}
-            />
+            /> */}
+            <GavelIcon width={80} height={80} />
             <p className="w-48 text-center">Office of the President (OP)</p>
           </div>
           <div
             style={{ textAlign: "center" }}
             className="flex items-center justify-center flex-col"
           >
-            <Image
+            {/* <Image
               src="/icons/oniclub.png"
               alt="Mommy Oni Club PH"
               width={80}
               height={80}
-            />
+            /> */}
+            <BookA width={80} height={80} />
             <p className="w-48 text-center">Office of Mommy Oni (OMO)</p>
           </div>
         </div>
@@ -132,7 +150,14 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <h2 style={{ color: "#133683", marginBottom: "1rem" }}>
+        <h2
+          style={{
+            color: "#133683",
+            marginBottom: "1rem",
+            fontSize: "2rem",
+            fontWeight: "bold",
+          }}
+        >
           What Users Think
         </h2>
         <p style={{ marginBottom: "2rem" }}>
@@ -140,6 +165,7 @@ export default function Home() {
           seamless process firsthand.
         </p>
         <div
+          className="flex flex-col items-center justify-center"
           style={{
             maxWidth: "800px",
             margin: "0 auto",
@@ -150,7 +176,7 @@ export default function Home() {
             position: "relative",
           }}
         >
-          <Image
+          {/* <Image
             src="/images/member.png.jpg"
             alt="User Profile"
             width={60}
@@ -160,7 +186,8 @@ export default function Home() {
               margin: "0 auto",
               display: "block",
             }}
-          />
+          /> */}
+          <User2Icon width={60} height={60} className="rounded-50" />
           <p style={{ fontWeight: "bold", marginTop: "1rem" }}>
             Tanya T., Administrative Officer
           </p>
@@ -193,7 +220,14 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <h2 style={{ fontWeight: "bold", marginBottom: "1.5rem" }}>
+        <h2
+          style={{
+            fontWeight: "bold",
+            marginBottom: "1.5rem",
+            fontSize: "2rem",
+            color: "#133683",
+          }}
+        >
           About WESTTRACK
         </h2>
         <p
