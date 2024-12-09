@@ -29,7 +29,8 @@ function Header({ onSearch }: { onSearch: (query: string) => void }) {
                 height={40}
                 className="ml-5"
                 />
-              <h1 className="ml-8">WestTrack</h1>
+              <h1 className="ml-8 mt-1 font-[Mayor] text-[hsl(var(--primary-color))] text-[22px]">West</h1>
+              <h1 className="ml-0 mt-1 font-[Mayor] text-[hsl(var(--accent-color))] text-[22px]">Track</h1>
           </div>
             </Link>
 

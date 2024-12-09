@@ -55,7 +55,7 @@ export default function Home() {
       <div className="justify-start h-[325px] w-full bg-homeLightBlueBG bg-opacity-[0.2] p-16 pl-[112px] pt-10 pb-0">
         {/* Other elements */}
         <h1  className="text-[64px] font-bold">Welcome Back,
-            <br /> Office of the Student Affairs!</h1>
+            <br /> Vice President For Academic Affairs!</h1>
       </div>
 
       <div className="flex pl-12 pt-8 items-center">
