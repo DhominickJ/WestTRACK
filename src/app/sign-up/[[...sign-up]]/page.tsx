@@ -101,7 +101,7 @@ function SignUpPage() {
     >
       <div className="bg-white shadow-lg rounded-lg flex overflow-hidden max-w-[900px] w-full">
         <div className="w-1/2 bg-[#0b5ca6] flex flex-col justify-center items-center text-white p-8">
-          <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
+          <Image src="/images/Icon_white.png" alt="Logo" width={100} height={100} />
           <h2 className="text-3xl font-bold mt-4">Sign Up</h2>
         </div>
         <div className="w-1/2 bg-white p-8 relative">

@@ -15,7 +15,7 @@ const LandingSection = () => {
     >
       {/* Background Image */}
       <Image
-        src="/images/Home_bg1.png"
+        src="/images/Home_bg.png"
         alt="Background"
         fill
         style={{ 

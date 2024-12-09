@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Header from "@/app/components/homeHeader";
+import Header from "@/app/components/unregisteredHeader";
 import InteractiveButton from "@/app/components/homeButton";
 
 function About(){
     return(
       <>
-      <Header />
+      <Header onSearch={function (query: string): void {
+          throw new Error("Function not implemented.");
+        } } />
       
       <div
         className="relative h-[540px] w-full bg-cover bg-center"

@@ -228,8 +228,7 @@ export default function Home() {
 
           WestTrack is designed to tackle the common challenges students face when accessing 
           official documents. It significantly reduces processing times and enhances transaction 
-          speeds while providing real-time status updates, transparency, and ease of access.
-        </p>
+          speeds while providing real-time status updates, transparency, and ease of access.</p>
       </div>
 
       {/* Team Section */}

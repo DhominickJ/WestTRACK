@@ -31,7 +31,7 @@ const Footer = () => {
             priority
           />
           <Image
-          src="/images/logo_name.png"
+            src="/images/logo_name.png"
             alt="WestTrack Logo Text"
             width={120}
             height={40}
@@ -58,12 +58,18 @@ const Footer = () => {
             }}
           >
             <li>
-              <a href="#home" style={{ textDecoration: "none", color: "#333" }}>
+              <a
+                href="/users/home"
+                style={{ textDecoration: "none", color: "#333" }}
+              >
                 Home
               </a>
             </li>
             <li>
-              <a href="#about" style={{ textDecoration: "none", color: "#333" }}>
+              <a
+                href="/users/about"
+                style={{ textDecoration: "none", color: "#333" }}
+              >
                 About Us
               </a>
             </li>
@@ -76,7 +82,10 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#edit" style={{ textDecoration: "none", color: "#333" }}>
+              <a
+                href="/users/home"
+                style={{ textDecoration: "none", color: "#333" }}
+              >
                 Edit a Document
               </a>
             </li>
