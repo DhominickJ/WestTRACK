@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; 
 import Header from "@/app/components/homeHeader";
 import ViewProcessingFilesPage from "@/app/components/RecentDocuments";
 import ViewFinishedFilesPage from "@/app/components/CheckedDocuments";
@@ -54,7 +55,6 @@ export default function Home() {
       <div className="justify-start h-[325px] w-full bg-homeLightBlueBG bg-opacity-[0.2] p-16 pl-[112px] pt-8 pb-0">
         {/* Other elements */}
         <PdfTemplates />
-        
       </div>
 
       <div className="flex pl-12 pt-8 items-center">
