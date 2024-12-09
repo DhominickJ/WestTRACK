@@ -188,21 +188,29 @@ function DocumentContent() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-[16rem] h-[550px] bg-[#d9d9d9] rounded-lg fixed right-0 top-100 p-5 overflow-y-auto mt-12">
+        <div className="w-[16rem] h-[550px] bg-[#d9d9d9] rounded-lg fixed right-0 top-100 p-5 overflow-y-auto mt-12 ">
           <div className="EditAndSign text-black text-lg font-bold mb-3">
-            <p className="mb-2">Edit and Sign PDF</p>
-            <button
-              className="w-full bg-blue-500 text-white p-2 rounded mb-2"
-              // onClick={handleEdit}
-            >
-              Edit PDF
-            </button>
-            <button
-              className="w-full bg-green-500 text-white p-2 rounded"
-              // onClick={handleSign}
-            >
-              Sign PDF
-            </button>
+            <p className="mb-2 items-end justify-end">Edit and Sign PDF</p>
+            <div className="flex flex-col items-center justify-center right-0">
+
+            <Image 
+              src="/images/editpdf.svg" 
+              alt="Edit"  
+              width={200} 
+              height={200} 
+              className="cursor-pointer mb-2"
+              onClick={() => alert("Edit PDF")} //change this functionn please
+              />
+
+            <Image 
+              src="/images/signpdf.svg" 
+              alt="Edit" 
+              width={200} 
+              height={200} 
+              className="cursor-pointer"
+              onClick={() => alert("Edit PDF")} //change this functionn please
+              />
+            </div>
           </div>
         </div>
       </div>
